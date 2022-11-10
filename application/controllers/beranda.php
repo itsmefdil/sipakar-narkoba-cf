@@ -11,7 +11,7 @@ class Beranda extends CI_Controller {
 	}
 	
 	public function index(){
-		$this->load->view(('beranda/home'));
+		$this->load->view(('frontend/index'));
 	}
 	
 	public function diagnosa()
@@ -22,7 +22,7 @@ class Beranda extends CI_Controller {
 		{
 			$data["view"]="beranda/form";
 			$data['listKelompok'] = $this->kelompok_gejala_model->get_list_data(); 
-			$this->load->view("beranda/diagnosa", $data);
+			$this->load->view("frontend/diagnosa", $data);
 		}
 		else
 		{
@@ -61,7 +61,7 @@ class Beranda extends CI_Controller {
 			}
 			usort($cuaca, "cmp");
 			$data["listCuaca"] = $cuaca;
-			$this->load->view("beranda/diagnosa", $data);
+			$this->load->view("frontend/diagnosa", $data);
 		}
 	}
 }

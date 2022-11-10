@@ -14,17 +14,9 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
-
- $baseDir = dirname(__FILE__);
- // automatically define the base url
- $baseUrl = ( isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? 'https://' : 'http://';
- $baseUrl .= isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : getenv('HTTP_HOST');
- $baseUrl .= str_replace('\\','/', dirname( isset($_SERVER['SCRIPT_NAME']) ? $_SERVER['SCRIPT_NAME'] : getenv('SCRIPT_NAME')));
- // Defines to deprecate the global baseUrl/baseDir
- define('CI_BASE_DIR', $baseDir);
- define('CI_BASE_URL', $baseUrl);
- $config['base_url']	= CI_BASE_URL;
+$config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
+$config['base_url'] .= "://" . $_SERVER['HTTP_HOST'];
+$config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 
 
 /*

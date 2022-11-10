@@ -3,7 +3,7 @@
     <div class="box">
         <div class="" style="padding:10px 40px;">            
             <div class="box-header">                
-                <h2>Diagnosa Cuaca </h2> <hr>
+                <h2>Diagnosa Kecanduan Narkoba </h2> <hr>
             </div><!-- /.box-header -->
             <div class="box-body">
                 <?php foreach($listKelompok->result() as $value){?>
@@ -22,8 +22,9 @@
                 <div class="form-group">
                 </div>
             </div><!--box body-->
+            <br>
             <div class="box-footer clearfix">
-                    <button id="btn-save" type="submit" class="btn btn-sm btn-primary btn-flat pull-right">Submit</button>
+                    <button id="btn-save" type="submit" class="btn btn-sm btn-primary btn-flat pull-right">Kirim</button>
             </div>
             </div>  
     </div><!--box-->

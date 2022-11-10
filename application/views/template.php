@@ -91,7 +91,7 @@
         <header class="header">
             <a href="<?php echo base_url('beranda')?>" class="logo" style="font-family:'Calibri',Arial,Verdana;font-weight:bold">
                 <!-- Add the class icon to your logo image or logo icon to add the margining -->
-                 Perkiraan Cuaca
+                 SIPAKAR Narkoba
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -116,7 +116,7 @@
                                 <li class="user-header bg-light-blue">
                                     <img src="<?php echo base_url()?>asset/be/img/avatar3.png" class="img-circle" alt="User Image" />
                                     <p>
-                                        <?php echo $this->session->userdata('NAMA')?>
+                                        Administrator
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -144,10 +144,10 @@
                     <!-- Sidebar user panel -->
                     <div class="user-panel text-center">
                         <div class="pull-up image">
-                            <img src="<?php echo base_url()?>asset/be/img/avatar0.png" class="img-circle" alt="User Image" />
+                            <img src="<?php echo base_url()?>asset/be/img/avatar2.png" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-down info">
-                            <p>Hello, <?php echo $this->session->userdata('NAMA')?></p>
+                            <p>Hello, Administrator</p>
 
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>  
@@ -166,12 +166,12 @@
                         </li>
 						<li class="active">
                             <a href="<?php echo base_url()?>cuaca">
-                                <i class="fa fa-dot-circle-o"></i> <span>Cuaca</span>
+                                <i class="fa fa-dot-circle-o"></i> <span>Diagnosa</span>
                             </a>
                         </li>
 						<li class="active">
                             <a href="<?php echo base_url()?>gejala_cuaca">
-                                <i class="fa fa-dot-circle-o"></i> <span>Gejala Cuaca</span>
+                                <i class="fa fa-dot-circle-o"></i> <span>Gejala Narkoba</span>
                             </a>
                         </li>
                     </ul>

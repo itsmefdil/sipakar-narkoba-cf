@@ -27,12 +27,12 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="<?= base_url()?>asset/login/images/img-01.png" alt="IMG">
+					<img src="<?= base_url()?>asset/be/img/drug.webp" alt="IMG">
 				</div>
 				<form class="login100-form validate-form" method="post" action="<?php echo base_url('login/submit')?>">
 		
 					<span class="login100-form-title">
-						Login SIPAKAR
+						Login SIPAKAR Narkoba
 					</span>
 					<?php if($this->session->flashdata('success')){ ?>
                 <div class="alert alert-success">
