@@ -61,7 +61,7 @@ class Beranda extends CI_Controller {
 			}
 			usort($narkoba, "cmp");
 			$data["listnarkoba"] = $narkoba;
-			$this->load->view("frontend/diagnosa", $data);7
+			$this->load->view("frontend/diagnosa", $data);
 		}
 	}
 }
