@@ -7,7 +7,7 @@ class Beranda extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('form', 'url', 'date'));
 		$this->load->library(array('session'));
-		$this->load->model(array('gejala_cuaca_model','gejala_model','cuaca_model','kelompok_gejala_model'));
+		$this->load->model(array('gejala_narkoba_model','gejala_model','narkoba_model','kelompok_gejala_model'));
 	}
 	
 	public function index(){
@@ -30,11 +30,11 @@ class Beranda extends CI_Controller {
 			$gejala = implode(",", $this->input->post("gejala"));
 			$data["listGejala"] = $this->gejala_model->get_list_by_id($gejala);
 			//hitung
-			$listcuaca = $this->gejala_cuaca_model->get_by_gejala($gejala);
-			$cuaca = [];
+			$listnarkoba = $this->gejala_narkoba_model->get_by_gejala($gejala);
+			$narkoba = [];
 			$i=0;
-			foreach($listcuaca->result() as $value){
-				$listGejala = $this->gejala_cuaca_model->get_gejala_by_cuaca($value->cuaca_id,$gejala);
+			foreach($listnarkoba->result() as $value){
+				$listGejala = $this->gejala_narkoba_model->get_gejala_by_narkoba($value->narkoba_id,$gejala);
 				$combineCF=0;
 				$CFBefore=0;
 				$j=0;
@@ -47,7 +47,7 @@ class Beranda extends CI_Controller {
 				}
 				if($combineCF>=0.5)
 				{
-					$cuaca[$i]=array('kode'=>$value->kode,
+					$narkoba[$i]=array('kode'=>$value->kode,
 										'nama'=>$value->nama,
 										'kepercayaan'=>$combineCF*100,
 										'keterangan'=>$value->keterangan);
@@ -59,9 +59,9 @@ class Beranda extends CI_Controller {
 			{
 				return ($a["kepercayaan"] > $b["kepercayaan"]) ? -1 : 1;
 			}
-			usort($cuaca, "cmp");
-			$data["listCuaca"] = $cuaca;
-			$this->load->view("frontend/diagnosa", $data);
+			usort($narkoba, "cmp");
+			$data["listnarkoba"] = $narkoba;
+			$this->load->view("frontend/diagnosa", $data);7
 		}
 	}
 }
