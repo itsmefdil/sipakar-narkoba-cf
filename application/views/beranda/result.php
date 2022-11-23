@@ -29,11 +29,11 @@
             <table id="tbl-list" class="table table-bordered table-striped">
                 <tr>
                     <th width="50px">No</th>
-                    <th>Cuaca</th>
+                    <th>Tingkat Kecanduan</th>
                     <th>Tingkat Kepercayaan</th>
                 </tr>
                 <tr>
-                    <?php $i = 1; foreach($listCuaca as $value){?>
+                    <?php $i = 1; foreach($listnarkoba as $value){?>
                         <tr>
                             <td width="30px"><?php echo $i++?></td>
                             <td><?php echo $value['kode']." - ".$value['nama']?></td>
@@ -50,14 +50,14 @@
             <h6 class="box-title">Kesimpulan</h6>
         </div><!-- /.box-header -->
         <div class="box-body"> 
-            <?php if(sizeof($listCuaca)>0) { ?>
+            <?php if(sizeof($listnarkoba)>0) { ?>
                 <p>
-                    Berdasarkan gejalanya, Cuaca hari ini di prediksi <b><?php echo $listCuaca[0]['nama'];?></b> dengan tingkat kepercayaan <b><?php echo $listCuaca[0]['kepercayaan'];?> %</b><br/>
-                    <?php echo $listCuaca[0]['keterangan'];?>
+                    Berdasarkan gejalanya, tingkat kecanduan narkoba di prediksi <b><?php echo $listnarkoba[0]['nama'];?></b> dengan tingkat kepercayaan <b><?php echo $listnarkoba[0]['kepercayaan'];?> %</b><br/>
+                    <?php echo $listnarkoba[0]['keterangan'];?>
                 </p>
             <?php }else{?>
                 <p>
-                    Cuaca tidak dapat diprediksi karena tingkat kepercayaan gejala terlalu rendah
+                    narkoba tidak dapat diprediksi karena tingkat kepercayaan gejala terlalu rendah
                 </p>
             <?php }?>
         </div><!--box body-->

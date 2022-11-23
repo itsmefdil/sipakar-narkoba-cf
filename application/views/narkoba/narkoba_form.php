@@ -18,7 +18,7 @@
 
 	    $('#formedit').submit(function(){
             $.ajax({
-                url:"<?php echo base_url()?>gejala_cuaca/<?php echo $post ?>",
+                url:"<?php echo base_url()?>narkoba/<?php echo $post ?>",
  			    type:"POST",
  			    data:$('#formedit').serialize(),
  			    cache: false,
@@ -45,44 +45,31 @@
         <div class="modal-content">
             <div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				<h4 class="modal-title">Gejala Cuaca Form</h4>
+				<h4 class="modal-title">Narkoba Form</h4>
             </div>
             <div class="modal-body">
                 <div class="box-body table-responsive">
                         <span id="form-msg">
                         </span>
-						<?php echo form_open(base_url()."gejala_cuaca/".$post,'id="formedit"')?>
+						<?php echo form_open(base_url()."narkoba/".$post,'id="formedit"')?>
                             <div class="box-body">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input type="hidden" id="id" name="id" value="<?php echo($row['id']); ?>" />
                                         <div class="form-group">
-                                            <label>Gejala</label>
-                                            <select id="gejala_id" class="form-control" name="gejala_id" required>
-												<option></option>
-												<?php foreach($listGejala->result() as $value){?>
-													<option value="<?php echo $value->id ?>" <?php echo ($value->id == $row['gejala_id']) ? 'selected':''; ?>><?php echo $value->kode.' - '.$value->keterangan ?></option>
-												<?php } ?>
-											</select>
+                                            <label>Kode</label>
+                                            <input type="text" class="form-control" id="kode" name="kode" value="<?php echo($row['kode']); ?>" placeholder="Masukkan kode"  />
                                         </div>
-										<div class="form-group">
-                                            <label>cuaca</label>
-                                            <select id="cuaca_id" class="form-control" name="cuaca_id" required>
-												<option></option>
-												<?php foreach($listcuaca->result() as $value){?>
-													<option value="<?php echo $value->id ?>" <?php echo ($value->id == $row['cuaca_id']) ? 'selected':''; ?>><?php echo $value->kode.' - '.$value->keterangan ?></option>
-												<?php } ?>
-											</select>
+                                        <div class="form-group">
+                                            <label>Nama</label>
+                                            <input type="text" class="form-control" id="keterangan" name="nama" value="<?php echo($row['nama']); ?>" placeholder="Masukkan Nama"  />
                                         </div>
-										<div class="form-group">
-                                            <label>MD</label>
-                                            <input type="text" class="form-control" id="md" name="md" value="<?php echo($row['md']); ?>" placeholder="Masukkan MD"  />
-                                        </div>
-										<div class="form-group">
-                                            <label>MB</label>
-                                            <input type="text" class="form-control" id="mb" name="mb" value="<?php echo($row['mb']); ?>" placeholder="Masukkan MB"  />
+                                        <div class="form-group">
+                                            <label>Keterangan</label>
+                                            <textarea type="text" class="form-control" name="keterangan" id="keterangan" placeholder="Masukkan keterangan"><?php echo($row['keterangan']);?></textarea>
                                         </div>
                                     </div>
+
                                     <div class="col-md-6">
                                     </div>
                                 </div>

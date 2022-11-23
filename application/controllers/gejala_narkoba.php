@@ -1,13 +1,13 @@
 <?php
 
-Class Gejala_cuaca extends CI_Controller {
+Class Gejala_narkoba extends CI_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
 		$this->load->library(array('session','form_validation'));
-		$this->load->model(array('gejala_cuaca_model','gejala_model','cuaca_model','kelompok_gejala_model'));
+		$this->load->model(array('gejala_narkoba_model','gejala_model','narkoba_model','kelompok_gejala_model'));
 
 		$this->load->library("UserLibrary");
 		$this->userlibrary->authCheck();
@@ -17,41 +17,41 @@ Class Gejala_cuaca extends CI_Controller {
 	{
 		$data["title"] = "";
 		$data["sub_title"] = "";
-		$rows = $this->gejala_cuaca_model->get_all();
+		$rows = $this->gejala_narkoba_model->get_all();
 		$data["row"] = $rows['data_arr'];
-		$this->template->display('gejala_cuaca/gejala_cuaca_view', $data);
+		$this->template->display('gejala_narkoba/gejala_narkoba_view', $data);
 	}
 
 
 	function add()
 	{
-		$data['row'] = $this->gejala_cuaca_model->get_by_id('');
+		$data['row'] = $this->gejala_narkoba_model->get_by_id('');
 		$data['post'] = 'save';
 		$data['listGejala'] = $this->gejala_model->get_list_data(); 
-		$data['listcuaca'] = $this->cuaca_model->get_list_data();
-		$this->load->view('gejala_cuaca/gejala_cuaca_form',$data);
+		$data['listnarkoba'] = $this->narkoba_model->get_list_data();
+		$this->load->view('gejala_narkoba/gejala_narkoba_form',$data);
 	}
 
 	function save()
 	{
 		$this->form_validation->set_rules('gejala_id', 'gejala_id','required|strip_tags');
-		$this->form_validation->set_rules('cuaca_id', 'cuaca_id','required|strip_tags');
+		$this->form_validation->set_rules('narkoba_id', 'narkoba_id','required|strip_tags');
 		$this->form_validation->set_rules('md', 'md','required|strip_tags');
 		$this->form_validation->set_rules('mb', 'mb','required|strip_tags');
 
 		if($this->form_validation->run() == TRUE){
 			$gejala_id=$this->input->post("gejala_id");
-			$cuaca_id=$this->input->post("cuaca_id");
+			$narkoba_id=$this->input->post("narkoba_id");
 			$md=$this->input->post("md");
 			$mb=$this->input->post("mb");
 
 			$data = array(
 				'gejala_id'=>$gejala_id,
-				'cuaca_id'=>$cuaca_id,
+				'narkoba_id'=>$narkoba_id,
 				'md'=>$md,
 				'mb'=>$mb
 			);
-			$this->gejala_cuaca_model->save($data);
+			$this->gejala_narkoba_model->save($data);
 
 			$msg_status['status'] = 1;
 			$msg_status['error'] = 0;
@@ -65,35 +65,35 @@ Class Gejala_cuaca extends CI_Controller {
 	function edit()
 	{
 		$id = $this->input->post('id');
-		$data['row'] = $this->gejala_cuaca_model->get_by_id($id);
+		$data['row'] = $this->gejala_narkoba_model->get_by_id($id);
 		$data['post'] = 'update';
 		$data['listGejala'] = $this->gejala_model->get_list_data(); 
-		$data['listcuaca'] = $this->cuaca_model->get_list_data();
-		$this->load->view('gejala_cuaca/gejala_cuaca_form',$data);
+		$data['listnarkoba'] = $this->narkoba_model->get_list_data();
+		$this->load->view('gejala_narkoba/gejala_narkoba_form',$data);
 	}
 
 	function update()
 	{
 		$this->form_validation->set_rules('gejala_id', 'gejala_id','required|strip_tags');
-		$this->form_validation->set_rules('cuaca_id', 'cuaca_id','required|strip_tags');
+		$this->form_validation->set_rules('narkoba_id', 'narkoba_id','required|strip_tags');
 		$this->form_validation->set_rules('md', 'md','required|strip_tags');
 		$this->form_validation->set_rules('mb', 'mb','required|strip_tags');
 
 		if($this->form_validation->run() == TRUE){
 			$id=$this->input->post("id");
 			$gejala_id=$this->input->post("gejala_id");
-			$cuaca_id=$this->input->post("cuaca_id");
+			$narkoba_id=$this->input->post("narkoba_id");
 			$md=$this->input->post("md");
 			$mb=$this->input->post("mb");
 
 			$data = array(
 				'gejala_id'=>$gejala_id,
-				'cuaca_id'=>$cuaca_id,
+				'narkoba_id'=>$narkoba_id,
 				'md'=>$md,
 				'mb'=>$mb
 			);
 
-			$this->gejala_cuaca_model->update($data,$id);
+			$this->gejala_narkoba_model->update($data,$id);
 			$msg_status['status'] = 1;
 			$msg_status['error'] = 0;
 		}
@@ -107,7 +107,7 @@ Class Gejala_cuaca extends CI_Controller {
 	function delete()
 	{
 		$id = $this->input->post('id');
-		$this->gejala_cuaca_model->delete($id);
+		$this->gejala_narkoba_model->delete($id);
 		$msg_status['status'] = 1;
 		$msg_status['error'] = 0;
 		echo json_encode($msg_status);
@@ -128,11 +128,11 @@ Class Gejala_cuaca extends CI_Controller {
 		$start = $this->get_start();
 		$rows = $this->get_rows();
 
-		// run query to get gejala_cuaca listing
-		$query = $this->gejala_cuaca_model->get_search($start, $rows, $search); 
+		// run query to get gejala_narkoba listing
+		$query = $this->gejala_narkoba_model->get_search($start, $rows, $search); 
 		$iFilteredTotal = $query->num_rows();
 
-		$iTotal=$this->gejala_cuaca_model->get_search_count($search)->row()->hasil;
+		$iTotal=$this->gejala_narkoba_model->get_search_count($search)->row()->hasil;
 
 		$output = array(
 			"sEcho" => intval($_GET['sEcho']),
@@ -148,11 +148,11 @@ Class Gejala_cuaca extends CI_Controller {
 			$record = array();
 			$record[] = ++$i;
 			$record[] = $temp->gejala;
-			$record[] = $temp->cuaca;
+			$record[] = $temp->narkoba;
 			$record[] = $temp->md;
 			$record[] = $temp->mb;
 			$record[] = "<a href=\"#\" class=\"text-yellow\" onclick=\"javascript:window_edit('".$temp->id."');\">Edit</a>&nbsp;|&nbsp;
-                         <a href=\"#\"class=\"text-yellow\" onclick=\"javascript:delete_gejala_cuaca('".$temp->id."');\">Delete</a>";
+                         <a href=\"#\"class=\"text-yellow\" onclick=\"javascript:delete_gejala_narkoba('".$temp->id."');\">Delete</a>";
 			$output['aaData'][] = $record;
 		}
 		// format it to JSON, this output will be displayed in datatable

@@ -2,11 +2,11 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1 style="text-align:left">
-	  cuaca
+	  Diagnosa Narkoba
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="<?php echo base_url()?>root"><i class="fa fa-dashboard"></i> Home</a></li>
-		<li class="active">cuaca</li>
+		<li class="active">Diagnosa Narkoba</li>
 	</ol>
 </section>
 
@@ -52,13 +52,13 @@
         return temp;
      }
 
-	function delete_cuaca(id){
+	function delete_narkoba(id){
         $(document).ready(function() {
         		bootbox.confirm("Apakah data ini akan dihapus?", function(result) {
         			if(result) {
 		   				$.ajax({
 			   				type: "POST",
-			   				url: "<?php echo base_url()?>cuaca/delete",
+			   				url: "<?php echo base_url()?>narkoba/delete",
 			   				data: "id=" + id, 
 			   				beforeSend: function (){
 
@@ -76,7 +76,7 @@
 	function window_edit(id) {
 	  $(document).ready(function() {
 		  $.ajax({
-			url: "<?php echo base_url()?>cuaca/edit",
+			url: "<?php echo base_url()?>narkoba/edit",
 			type:"POST",
 			data: "id=" + id, 
 			beforeSend: function(response){
@@ -107,12 +107,12 @@
 					
 					{"bSearchable": false, "bSortable": false, "sWidth":"90px"}
 					],
-				"sAjaxSource": "<?php echo base_url();?>cuaca/get_list",
+				"sAjaxSource": "<?php echo base_url();?>narkoba/get_list",
         });
 
         $('#btn-new').click(function(){
 			$.ajax({
-			  url: "<?php echo base_url()?>cuaca/add",
+			  url: "<?php echo base_url()?>narkoba/add",
 			  beforeSend: function(response){
 				  $('#winform').html('');
 				  $('#id').val('');

@@ -2,11 +2,11 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
 	<h1 style="text-align:left">
-	  Gejala cuaca
+	  Gejala Narkoba
 	</h1>
 	<ol class="breadcrumb">
 		<li><a href="<?php echo base_url()?>root"><i class="fa fa-dashboard"></i> Home</a></li>
-		<li class="active">Gejala cuaca</li>
+		<li class="active">Gejala Narkoba</li>
 	</ol>
 </section>
 
@@ -26,7 +26,7 @@
 					<tr>
 						<th>No</th>
 						<th>Gejala</th>
-						<th>Cuaca</th>
+						<th>Narkoba</th>
 						<th>MB</th>
 						<th>MD</th>
 						<th width="90px" >Aksi</th>
@@ -55,13 +55,13 @@
         return temp;
      }
 
-	function delete_gejala_cuaca(id){
+	function delete_gejala_narkoba(id){
         $(document).ready(function() {
         		bootbox.confirm("Apakah data ini akan dihapus?", function(result) {
         			if(result) {
 		   				$.ajax({
 			   				type: "POST",
-			   				url: "<?php echo base_url()?>gejala_cuaca/delete",
+			   				url: "<?php echo base_url()?>gejala_narkoba/delete",
 			   				data: "id=" + id, 
 			   				beforeSend: function (){
 
@@ -79,7 +79,7 @@
 	function window_edit(id) {
 	  $(document).ready(function() {
 		  $.ajax({
-			url: "<?php echo base_url()?>gejala_cuaca/edit",
+			url: "<?php echo base_url()?>gejala_narkoba/edit",
 			type:"POST",
 			data: "id=" + id, 
 			beforeSend: function(response){
@@ -111,17 +111,17 @@
 					
 					{"bSearchable": false, "bSortable": false, "sWidth":"90px"}
 					],
-				"sAjaxSource": "<?php echo base_url();?>gejala_cuaca/get_list",
+				"sAjaxSource": "<?php echo base_url();?>gejala_narkoba/get_list",
         });
 
         $('#btn-new').click(function(){
 			$.ajax({
-			  url: "<?php echo base_url()?>gejala_cuaca/add",
+			  url: "<?php echo base_url()?>gejala_narkoba/add",
 			  beforeSend: function(response){
 				  $('#winform').html('');
 				  $('#id').val('');
 				  $('#gejala_id').val('');
-				  $('#cuaca_id').val('');
+				  $('#narkoba_id').val('');
 				  $('#md').val('');
 				  $('#mb').val('');
 			  },

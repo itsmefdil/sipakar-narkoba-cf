@@ -1,6 +1,6 @@
 <?php
 
-Class cuaca_model extends CI_Model {
+Class narkoba_model extends CI_Model {
 
      function __construct()
      {
@@ -26,7 +26,7 @@ Class cuaca_model extends CI_Model {
      }
 
      function get_all($status=''){
-         $this->db->select('*')->from('cuaca');
+         $this->db->select('*')->from('narkoba');
          if ($status=='y'){
              $this->db->where('status','y');	
          }
@@ -40,7 +40,7 @@ Class cuaca_model extends CI_Model {
      }
 
      function get_by_id($id){
-         $this->db->select('*')->from('cuaca');
+         $this->db->select('*')->from('narkoba');
          $this->db->where("id",$id);
          $query = $this->db->get();
          $result = $query->result();
@@ -56,7 +56,7 @@ Class cuaca_model extends CI_Model {
      }
 
      function get_last_record(){
-         $this->db->select('*')->from('cuaca');
+         $this->db->select('*')->from('narkoba');
          $this->db->order_by("id", "desc");
          $this->db->limit(1);
          $query = $this->db->get();
@@ -73,7 +73,7 @@ Class cuaca_model extends CI_Model {
      }
 
      function get_by_param($param_name,$value){
-         $this->db->select('*')->from('cuaca');
+         $this->db->select('*')->from('narkoba');
          $this->db->where($param_name,$value);
          $query = $this->db->get();
 
@@ -84,31 +84,31 @@ Class cuaca_model extends CI_Model {
      }
 
      function get_search($start, $rows, $search){
-         $sql = "select * from cuaca where id like '%".$search."%' order by id asc limit ".$start.",".$rows;
+         $sql = "select * from narkoba where id like '%".$search."%' order by id asc limit ".$start.",".$rows;
          return $this->db->query($sql);
      }
      function get_search_count($search){
-         $sql = "select count(*) as hasil from cuaca where id like '%".$search."%' order by id asc";
+         $sql = "select count(*) as hasil from narkoba where id like '%".$search."%' order by id asc";
          return $this->db->query($sql);
      }
 
      function save($data){
-         $this->db->insert('cuaca',$data);
+         $this->db->insert('narkoba',$data);
      }
 
      function update($data,$id){
          $this->db->where('id',$id);
-         $this->db->update('cuaca',$data);
+         $this->db->update('narkoba',$data);
      }
 
      function delete($id){
          $this->db->where('id',$id);
-         $this->db->delete('cuaca');
+         $this->db->delete('narkoba');
      }
 
 	 function get_list_data(){
         $this->db->select('*');
-        $this->db->from('cuaca');
+        $this->db->from('narkoba');
         return $this->db->get();
     }
 }

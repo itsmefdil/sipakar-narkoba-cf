@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Perkiraan Cuaca - Certainty Factor : Fadilah Riczky</title>
+        <title>Perkiraan narkoba - Certainty Factor : Fadilah Riczky</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
         <link href="<?php echo base_url()?>asset/be/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -159,19 +159,19 @@
                                 <i class="fa fa-dot-circle-o"></i> <span>Gejala</span>
                             </a>
                         </li>
-                        <li class="active">
+                        <!-- <li class="active">
                             <a href="<?php echo base_url()?>kelompok_gejala">
                                 <i class="fa fa-dot-circle-o"></i> <span>Kelompok Gejala</span>
                             </a>
-                        </li>
+                        </li> -->
 						<li class="active">
-                            <a href="<?php echo base_url()?>cuaca">
+                            <a href="<?php echo base_url()?>narkoba">
                                 <i class="fa fa-dot-circle-o"></i> <span>Diagnosa</span>
                             </a>
                         </li>
 						<li class="active">
-                            <a href="<?php echo base_url()?>gejala_cuaca">
-                                <i class="fa fa-dot-circle-o"></i> <span>Gejala Narkoba</span>
+                            <a href="<?php echo base_url()?>gejala_narkoba">
+                                <i class="fa fa-dot-circle-o"></i> <span>Certainty Factor</span>
                             </a>
                         </li>
                     </ul>

@@ -1,13 +1,13 @@
 <?php
 
-Class Cuaca extends CI_Controller {
+Class Narkoba extends CI_Controller {
 
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
 		$this->load->library(array('session','form_validation'));
-		$this->load->model(array('cuaca_model'));
+		$this->load->model(array('narkoba_model'));
 
 		$this->load->library("UserLibrary");
 		$this->userlibrary->authCheck();
@@ -17,17 +17,17 @@ Class Cuaca extends CI_Controller {
 	{
 		$data["title"] = "";
 		$data["sub_title"] = "";
-		$rows = $this->cuaca_model->get_all();
+		$rows = $this->narkoba_model->get_all();
 		$data["row"] = $rows['data_arr'];
-		$this->template->display('cuaca/cuaca_view', $data);
+		$this->template->display('narkoba/narkoba_view', $data);
 	}
 
 
 	function add()
 	{
-		$data['row'] = $this->cuaca_model->get_by_id('');
+		$data['row'] = $this->narkoba_model->get_by_id('');
 		$data['post'] = 'save';
-		$this->load->view('cuaca/cuaca_form',$data);
+		$this->load->view('narkoba/narkoba_form',$data);
 	}
 
 	function save()
@@ -46,7 +46,7 @@ Class Cuaca extends CI_Controller {
 				'nama'=>$nama,
 				'keterangan'=>$keterangan
 			);
-			$this->cuaca_model->save($data);
+			$this->narkoba_model->save($data);
 
 			$msg_status['status'] = 1;
 			$msg_status['error'] = 0;
@@ -60,9 +60,9 @@ Class Cuaca extends CI_Controller {
 	function edit()
 	{
 		$id = $this->input->post('id');
-		$data['row'] = $this->cuaca_model->get_by_id($id);
+		$data['row'] = $this->narkoba_model->get_by_id($id);
 		$data['post'] = 'update';
-		$this->load->view('cuaca/cuaca_form',$data);
+		$this->load->view('narkoba/narkoba_form',$data);
 	}
 
 	function update()
@@ -83,7 +83,7 @@ Class Cuaca extends CI_Controller {
 				'keterangan'=>$keterangan
 			);
 
-			$this->cuaca_model->update($data,$id);
+			$this->narkoba_model->update($data,$id);
 			$msg_status['status'] = 1;
 			$msg_status['error'] = 0;
 		}
@@ -97,7 +97,7 @@ Class Cuaca extends CI_Controller {
 	function delete()
 	{
 		$id = $this->input->post('id');
-		$this->cuaca_model->delete($id);
+		$this->narkoba_model->delete($id);
 		$msg_status['status'] = 1;
 		$msg_status['error'] = 0;
 		echo json_encode($msg_status);
@@ -118,11 +118,11 @@ Class Cuaca extends CI_Controller {
 		$start = $this->get_start();
 		$rows = $this->get_rows();
 
-		// run query to get cuaca listing
-		$query = $this->cuaca_model->get_search($start, $rows, $search);
+		// run query to get narkoba listing
+		$query = $this->narkoba_model->get_search($start, $rows, $search);
 		$iFilteredTotal = $query->num_rows();
 
-		$iTotal=$this->cuaca_model->get_search_count($search)->row()->hasil;
+		$iTotal=$this->narkoba_model->get_search_count($search)->row()->hasil;
 
 		$output = array(
 			"sEcho" => intval($_GET['sEcho']),
@@ -141,7 +141,7 @@ Class Cuaca extends CI_Controller {
 			$record[] = $temp->nama;
 			$record[] = $temp->keterangan;
 			$record[] = "<a href=\"#\" class=\"text-yellow\" onclick=\"javascript:window_edit('".$temp->id."');\">Edit</a>&nbsp;|&nbsp;
-                         <a href=\"#\"class=\"text-yellow\" onclick=\"javascript:delete_cuaca('".$temp->id."');\">Delete</a>";
+                         <a href=\"#\"class=\"text-yellow\" onclick=\"javascript:delete_narkoba('".$temp->id."');\">Delete</a>";
 			$output['aaData'][] = $record;
 		}
 		// format it to JSON, this output will be displayed in datatable
