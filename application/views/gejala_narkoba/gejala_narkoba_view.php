@@ -27,8 +27,8 @@
 						<th>No</th>
 						<th>Gejala</th>
 						<th>Narkoba</th>
-						<th>MB</th>
 						<th>MD</th>
+						<th>MB</th>
 						<th width="90px" >Aksi</th>
 					</tr>
 				</thead>
